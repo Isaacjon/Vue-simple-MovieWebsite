@@ -45,14 +45,15 @@ header {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   overflow: hidden;
-}
 
-h1 {
-  color: #fff;
-  font-size: 28px;
+  h1 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 0;
 
-  span {
-    color: #42b883;
+    span {
+      color: #42b883;
+    }
   }
 }
 </style>
