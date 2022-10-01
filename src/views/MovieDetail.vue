@@ -4,7 +4,7 @@
     <div class="texts d-inline">
       <h2 class="">{{ movie?.Title }}</h2>
       <span class="d-flex gap-4">
-        <p><span> &#9733; </span> {{ movie?.Ratings[0].Value }}</p>
+        <p><span> &#9733; </span> {{ movie?.Ratings[0]?.Value }}</p>
         <p>{{ movie?.Runtime }}</p>
       </span>
       <p>{{ movie?.Plot }}</p>

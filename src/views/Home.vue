@@ -84,7 +84,7 @@ export default {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.Search);
+          // console.log(data.Search);
           // console.log(
           //   ` https://www.omdbapi.com/?i=tt3896198&apikey=${env.apikey}&s=${search.value}`
           // );
