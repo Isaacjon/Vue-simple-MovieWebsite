@@ -18,8 +18,12 @@
             trek around the world where Lane must brave horrific dangers and
             long odds to find answers before human civilization falls.
           </p>
-          <p class="mb-0">Year: {{ movies[0]?.Year }}</p>
-          <p class="mb-0">Type: {{ movies[0]?.Type }}</p>
+          <p class="mb-0">
+            Year: <span>{{ movies[0]?.Year }}</span>
+          </p>
+          <p class="mb-0">
+            Type: <span> {{ movies[0]?.Type }}</span>
+          </p>
 
           <!-- <pre>{{ movies[0] }}</pre> -->
         </div>
@@ -42,7 +46,7 @@
           </div>
           <div class="detail">
             <p class="year">{{ movie.Year }}</p>
-            <h3>{{ movie.Title }}</h3>
+            <h3 :title="movie.Title">{{ movie.Title }}</h3>
           </div>
         </router-link>
       </div>
@@ -142,6 +146,10 @@ export default {
           font-size: 12px;
           padding-bottom: 0 !important;
         }
+
+        span {
+          font-size: 14px;
+        }
       }
     }
   }
@@ -176,7 +184,6 @@ export default {
 
         @media (max-width: 768px) {
           padding: 5px 8px;
-
           font-size: 14px;
         }
 
@@ -209,6 +216,9 @@ export default {
         &:active {
           background: #38b070;
         }
+        &:hover {
+          box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.5);
+        }
       }
     }
   }
@@ -224,6 +234,15 @@ export default {
       width: 25%;
       max-width: 200px;
       margin: 0 0.75% 30px;
+      box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.5);
+      box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.5);
+      transition: 0.4s;
+
+      &:hover {
+        filter: brightness(1.1);
+        box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.5);
+      }
       //media
       @media (max-width: 1255px) {
         // width: 250px;
@@ -328,7 +347,8 @@ export default {
           font-size: 18px;
           white-space: nowrap;
           margin-bottom: 0;
-          overflow-y: auto;
+          overflow: hidden;
+
           //media
           @media (max-width: 768px) {
             font-size: 14px;
