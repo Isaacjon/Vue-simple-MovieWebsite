@@ -39,12 +39,12 @@ export default {
         .then((res) => res.json())
         .then((data) => {
           movie.value = data;
-          console.log(data);
+          // console.log(data);
         });
     });
 
     onMounted(() => {
-      console.log("beforemount ", window.outerHeight);
+      // console.log("beforemount ", window.outerHeight);
       window.outerHeight = height;
       window.outerWidth = width;
     });

@@ -232,7 +232,7 @@ export default {
 
     .movie {
       width: 25%;
-      max-width: 200px;
+      max-width: 210px;
       margin: 0 0.75% 30px;
       box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.5);
       box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.5);
@@ -248,22 +248,10 @@ export default {
         // width: 250px;
         margin: 0 0.75% 20px;
       }
-      //media
-      @media (max-width: 855px) {
-        max-width: 180px;
-      }
-      //media
-      @media (max-width: 768px) {
-        max-width: 168px;
-      }
 
-      @media (max-width: 660px) {
-        max-width: 145px;
-        margin: 0 0.75% 10px;
-      }
-
-      @media (max-width: 585px) {
-        max-width: 128px;
+      @media (max-width: 894px) {
+        width: 100%;
+        max-width: 23.5%;
       }
 
       @media (max-width: 510px) {
@@ -278,7 +266,7 @@ export default {
         min-width: 45%;
         max-width: 200px;
         max-width: 45%;
-        margin: 0 1.5% 10px;
+        // margin: 0 1.5% 10px;
       }
 
       .product-img {
@@ -300,20 +288,10 @@ export default {
 
         @media (max-width: 471px) {
           max-height: 50vh;
-
-          // width: 100%;
-          // border: 10px solid red;
         }
 
         @media (max-width: 365px) {
-          // max-height: 200px;
           max-height: 40vh;
-        }
-
-        @media (max-width: 394px) {
-          // width: 100%;
-          // max-height: 235px;
-          // min-height: 235px;
         }
 
         img {
