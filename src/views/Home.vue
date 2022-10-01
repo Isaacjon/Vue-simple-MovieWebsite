@@ -268,12 +268,17 @@ export default {
 
       @media (max-width: 510px) {
         min-width: 150px;
+        min-width: 31%;
         max-width: 215px;
+        max-width: 31%;
       }
 
-      @media (max-width: 310px) {
-        max-width: 135px;
-        min-width: 135px;
+      @media (max-width: 471px) {
+        min-width: 190px;
+        min-width: 45%;
+        max-width: 200px;
+        max-width: 45%;
+        margin: 0 1.5% 10px;
       }
 
       .product-img {
@@ -293,7 +298,19 @@ export default {
           max-height: 200px;
         }
 
-        @media (max-width: 310px) {
+        @media (max-width: 471px) {
+          max-height: 50vh;
+
+          // width: 100%;
+          // border: 10px solid red;
+        }
+
+        @media (max-width: 365px) {
+          // max-height: 200px;
+          max-height: 40vh;
+        }
+
+        @media (max-width: 394px) {
           // width: 100%;
           // max-height: 235px;
           // min-height: 235px;
