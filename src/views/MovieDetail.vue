@@ -33,7 +33,7 @@ export default {
     onBeforeMount(() => {
       // console.log("beforemount ", route);
       fetch(
-        `http://www.omdbapi.com/?apikey=${env.apikey}&i=${route.params.id}&plot=full`
+        `https://www.omdbapi.com/?apikey=${env.apikey}&i=${route.params.id}&plot=full`
       )
         .then((res) => res.json())
         .then((data) => {
