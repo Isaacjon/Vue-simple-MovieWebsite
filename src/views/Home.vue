@@ -54,7 +54,7 @@ export default {
     const SearchMovies = () => {
       if (search.value != "") {
         fetch(
-          ` http://www.omdbapi.com/?i=tt3896198&apikey=${env.apikey}&s=${search.value}`
+          ` https://www.omdbapi.com/?i=tt3896198&apikey=${env.apikey}&s=${search.value}`
         )
           .then((response) => response.json())
           .then((data) => {
@@ -66,13 +66,16 @@ export default {
     };
     onMounted(() => {
       fetch(
-        ` http://www.omdbapi.com/?i=tt3896198&apikey=${
+        ` https://www.omdbapi.com/?i=tt3896198&apikey=${
           env.apikey
         }&s=${"world war"}`
       )
         .then((response) => response.json())
         .then((data) => {
           console.log(data.Search);
+          console.log(
+            ` https://www.omdbapi.com/?i=tt3896198&apikey=${env.apikey}&s=${search.value}`
+          );
           movies.value = data.Search;
           search.value = "";
         });
