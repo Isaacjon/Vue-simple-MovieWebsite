@@ -25,8 +25,8 @@
       />
       <input type="submit" value="Search" />
     </form>
-    <div class="movies-list">
-      <div class="movie" v-for="movie in movies" :key="movie.imdbID">
+    <div class="movies-list d-flex flex-wrap justify-content-center">
+      <div class="movie rounded" v-for="movie in movies" :key="movie.imdbID">
         <router-link :to="'/movie/' + movie.imdbID" class="movie-link">
           <div class="product-img">
             <img :src="movie.Poster" alt="Movie Poster" />
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import env from "@/env.js";
 
 export default {
@@ -58,12 +58,25 @@ export default {
         )
           .then((response) => response.json())
           .then((data) => {
-            console.log(data.Search);
+            // console.log(data.Search);
             movies.value = data.Search;
             search.value = "";
           });
       }
     };
+    onMounted(() => {
+      fetch(
+        ` http://www.omdbapi.com/?i=tt3896198&apikey=${
+          env.apikey
+        }&s=${"world war"}`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data.Search);
+          movies.value = data.Search;
+          search.value = "";
+        });
+    });
 
     return {
       search,
@@ -82,8 +95,9 @@ export default {
     .featured-img {
       display: block;
       width: 100%;
-      height: 300px;
+      height: 500px;
       object-fit: cover;
+      object-position: center;
 
       position: relative;
       z-index: 0;
@@ -98,13 +112,24 @@ export default {
       padding: 16px;
       z-index: 1;
 
+      @media (max-width: 400px) {
+        padding: 8px;
+      }
+
       h3 {
         color: #fff;
         margin-bottom: 16px;
+
+        @media (max-width: 400px) {
+          font-size: 14px;
+        }
       }
 
       p {
         color: #fff;
+        @media (max-width: 400px) {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -144,9 +169,9 @@ export default {
 
       &[type="submit"] {
         width: 100%;
-        max-width: 300px;
+        max-width: 200px;
         background: #42b883;
-        padding: 16px;
+        padding: 5px 8px;
         border-radius: 8px;
         color: #fff;
         font-size: 20px;
@@ -161,28 +186,43 @@ export default {
   }
 
   .movies-list {
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
     margin: 0 8px;
 
+    @media (max-width: 500px) {
+      // max-width: 33%;
+      margin: 0;
+    }
+
     .movie {
-      max-width: 50%;
-      flex: 1 1 50%;
       padding: 16px 8px;
+      width: 100%;
+      max-width: 25%;
+
+      @media (max-width: 700px) {
+        max-width: 33%;
+      }
+
+      @media (max-width: 480px) {
+        max-width: 49%;
+      }
+
+      @media (max-width: 400px) {
+        padding: 8px;
+      }
 
       .movie-link {
-        display: flex;
-        flex-direction: column;
         height: 100%;
 
         .product-img {
           position: relative;
           display: block;
+          // flex-grow: 1;
 
           img {
             display: block;
             width: 100%;
-            height: 275px;
             height: 100%;
             object-fit: cover;
           }
@@ -195,6 +235,11 @@ export default {
             bottom: 16px;
             left: 0;
             text-transform: capitalize;
+
+            @media (max-width: 400px) {
+              padding: 0px 8px;
+              font-size: 12px;
+            }
           }
         }
 
@@ -203,16 +248,38 @@ export default {
           padding: 16px 8px;
           flex: 1 1 100%;
           border-radius: 0 0 8px 8px;
+          overflow: hidden;
+          max-height: 100px;
+
+          @media (max-width: 700px) {
+            max-height: 88px;
+          }
+
+          @media (max-width: 400px) {
+            padding: 10px 5px;
+            max-height: 60px;
+          }
 
           .year {
             color: #aaa;
             font-size: 14px;
+            margin-bottom: 5px;
+
+            @media (max-width: 400px) {
+              font-size: 12px;
+            }
           }
 
           h3 {
             color: #fff;
             font-weight: 600;
             font-size: 18px;
+            white-space: nowrap;
+
+            @media (max-width: 400px) {
+              font-size: 14px;
+              margin-bottom: 0;
+            }
           }
         }
       }

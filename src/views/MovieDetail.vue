@@ -17,13 +17,13 @@ export default {
     const route = useRoute();
 
     onBeforeMount(() => {
-      console.log("beforemount ", route);
+      // console.log("beforemount ", route);
       fetch(
         `http://www.omdbapi.com/?apikey=${env.apikey}&i=${route.params.id}&plot=full`
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           movie.value = data;
         });
     });
@@ -34,6 +34,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .movie-detail {
   padding: 16px;
